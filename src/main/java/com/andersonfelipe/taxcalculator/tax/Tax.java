@@ -4,7 +4,7 @@ import com.andersonfelipe.taxcalculator.product.Product;
 
 public abstract class Tax {
 	public abstract boolean isApplicable(Product product);
-	abstract float getRate();
+	public abstract float getRate();
 	
 	public float calculate(Product product) {
 		if(isApplicable(product)) {

@@ -9,5 +9,6 @@ public class CartPrinter {
 		
 		System.out.println(String.format("Taxes: %.2f", cart.getTotalTax()));
 		System.out.println(String.format("Total: %.2f", cart.getTotalCost()));
+		System.out.println();
 	}
 }

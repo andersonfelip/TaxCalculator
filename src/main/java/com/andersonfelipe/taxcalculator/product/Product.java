@@ -45,6 +45,6 @@ public class Product {
 	}
 	
 	public boolean isImported() {
-		return description.contains(" imported ");
+		return description.contains("imported ");
 	}
 }

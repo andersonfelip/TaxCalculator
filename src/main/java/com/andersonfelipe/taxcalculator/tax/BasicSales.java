@@ -18,7 +18,7 @@ public class BasicSales extends Tax {
 	}
 
 	@Override
-	float getRate() {
+	public float getRate() {
 		return 10;
 	}
 }

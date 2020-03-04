@@ -10,7 +10,7 @@ public class ImportedSales extends Tax{
 	}
 
 	@Override
-	float getRate() {
+	public float getRate() {
 		return 5;
 	}
 	

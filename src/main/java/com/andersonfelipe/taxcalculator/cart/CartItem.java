@@ -37,6 +37,6 @@ public class CartItem {
 
 	@Override
 	public String toString() {
-		return String.format("%x %s : %.2f", quantity, product.getDescription(), getCost());
+		return String.format("%x %s: %.2f", quantity, product.getDescription(), getCost());
 	}
 }

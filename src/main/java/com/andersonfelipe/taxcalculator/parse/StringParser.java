@@ -1,6 +1,7 @@
 package com.andersonfelipe.taxcalculator.parse;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -12,12 +13,21 @@ public class StringParser {
 	
 	private static String ITEM_REGEX = "(\\d+) ([\\w\\s]* )at (\\d+.\\d{2})";
 	
-	public static Cart cartParser(String[] items) {
-		Cart cart = new Cart();
-		cart.setCartItems(new ArrayList<CartItem>());
-		for (String item : items) {
-			cart.getCartItems().add(cartItemParser(item));
+	public static Cart cartParser(Cart cart) {
+		if(cart.getCartItems().size() > 0) {
+			List<String> productDescription = new ArrayList<String>(); 
+			for (CartItem item : cart.getCartItems()) {
+				if(item.getProduct() != null) {
+					productDescription.add(item.getProduct().getDescription());	
+				}
+			}
+			
+			cart.setCartItems(new ArrayList<CartItem>());
+			for (String item : productDescription) {
+				cart.getCartItems().add(cartItemParser(item));
+			}
 		}
+			
 		return cart;
 	}
 	

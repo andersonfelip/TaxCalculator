@@ -2,7 +2,7 @@ package com.andersonfelipe.taxcalculator.tax;
 
 import com.andersonfelipe.taxcalculator.product.Product;
 
-public class ImportedSales extends Tax{
+public class ImportedSales implements Tax{
 	
 	@Override
 	public boolean isApplicable(Product product) {

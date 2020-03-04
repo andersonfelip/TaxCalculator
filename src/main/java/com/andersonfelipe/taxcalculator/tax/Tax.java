@@ -2,11 +2,11 @@ package com.andersonfelipe.taxcalculator.tax;
 
 import com.andersonfelipe.taxcalculator.product.Product;
 
-public abstract class Tax {
-	public abstract boolean isApplicable(Product product);
-	public abstract float getRate();
+public interface Tax {
+	public boolean isApplicable(Product product);
+	public float getRate();
 	
-	public float calculate(Product product) {
+	public default float calculate(Product product) {
 		if(isApplicable(product)) {
 			
 			float tax = (product.getShelfPrice() * getRate()) / 100;

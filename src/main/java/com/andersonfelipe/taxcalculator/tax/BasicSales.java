@@ -3,9 +3,9 @@ package com.andersonfelipe.taxcalculator.tax;
 import com.andersonfelipe.taxcalculator.product.Product;
 import com.andersonfelipe.taxcalculator.product.ProductType;
 
-public class BasicSales extends Tax {
+public class BasicSales implements Tax {
 
-	private ProductType[] excemptionsTax = { ProductType.Book, ProductType.Food, ProductType.Medical };
+	private ProductType[] excemptionsTax = { ProductType.BOOK, ProductType.FOOD, ProductType.MEDICAL };
 
 	@Override
 	public boolean isApplicable(Product product) {

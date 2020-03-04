@@ -11,11 +11,11 @@ import com.andersonfelipe.taxcalculator.product.Product;
 
 public class StringParser {
 	
-	private static String ITEM_REGEX = "(\\d+) ([\\w\\s]* )at (\\d+.\\d{2})";
+	private static String itemRegex = "(\\d+) ([\\w\\s]* )at (\\d+.\\d{2})";
 	
 	public static Cart cartParser(Cart cart) {
-		if(cart.getCartItems().size() > 0) {
-			List<String> productDescription = new ArrayList<String>(); 
+		if(!cart.getCartItems().isEmpty()) {
+			List<String> productDescription = new ArrayList<>(); 
 			for (CartItem item : cart.getCartItems()) {
 				if(item.getProduct() != null) {
 					productDescription.add(item.getProduct().getDescription());	
@@ -33,7 +33,7 @@ public class StringParser {
 	
 	public static CartItem cartItemParser(String description) {
 		
-		Pattern pattern = Pattern.compile(ITEM_REGEX);
+		Pattern pattern = Pattern.compile(itemRegex);
         Matcher matcher = pattern.matcher(description);
         
         if(matcher.find()) {

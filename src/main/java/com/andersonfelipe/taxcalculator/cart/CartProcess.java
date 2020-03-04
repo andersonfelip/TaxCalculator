@@ -7,7 +7,7 @@ public class CartProcess {
 
 	public static void processCart(Cart cart) {
 		StringParser.cartParser(cart);
-		TaxCalculator.CalculateCartTax(cart);
+		TaxCalculator.calculateCartTax(cart);
 		
 	}
 }

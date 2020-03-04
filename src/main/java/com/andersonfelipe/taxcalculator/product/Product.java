@@ -25,15 +25,13 @@ public class Product {
 		this.shelfPrice = shelfPrice;
 	}
 
-	private static Map<ProductType,String[]> dictionaryTypes = new HashMap<ProductType,String[]>(){
-		private static final long serialVersionUID = 1L;
-
-	{
-		put(ProductType.Food, new String[] {"chocolate","chocolates"});
-		put(ProductType.Medical, new String[] {"pills"});
-		put(ProductType.Book, new String[] {"book"});
+	private static Map<ProductType,String[]> dictionaryTypes = new HashMap<>();
+	
+	static {
+		dictionaryTypes.put(ProductType.FOOD, new String[] {"chocolate","chocolates"});
+		dictionaryTypes.put(ProductType.MEDICAL, new String[] {"pills"});
+		dictionaryTypes.put(ProductType.BOOK, new String[] {"book"});
 	}
-	};
 	
 	public boolean isProductTypeOf(ProductType productType) {
 		for (String word : dictionaryTypes.get(productType)) {

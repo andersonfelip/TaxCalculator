@@ -24,25 +24,25 @@ public class ProductTest {
 	@Test
 	public void createProductBook() {
 		Product product = book;
-		assertEquals(Boolean.TRUE, product.isProductTypeOf(ProductType.Book));
-		assertEquals(Boolean.FALSE, product.isProductTypeOf(ProductType.Food));
-		assertEquals(Boolean.FALSE, product.isProductTypeOf(ProductType.Medical));
+		assertEquals(Boolean.TRUE, product.isProductTypeOf(ProductType.BOOK));
+		assertEquals(Boolean.FALSE, product.isProductTypeOf(ProductType.FOOD));
+		assertEquals(Boolean.FALSE, product.isProductTypeOf(ProductType.MEDICAL));
 	}
 	
 	@Test
 	public void createProductFood() {
 		Product product = food;
-		assertEquals(Boolean.TRUE, product.isProductTypeOf(ProductType.Food));
-		assertEquals(Boolean.FALSE, product.isProductTypeOf(ProductType.Book));
-		assertEquals(Boolean.FALSE, product.isProductTypeOf(ProductType.Medical));
+		assertEquals(Boolean.TRUE, product.isProductTypeOf(ProductType.FOOD));
+		assertEquals(Boolean.FALSE, product.isProductTypeOf(ProductType.BOOK));
+		assertEquals(Boolean.FALSE, product.isProductTypeOf(ProductType.MEDICAL));
 	}
 	
 	@Test
 	public void createProductOther() {
 		Product product = other;
-		assertEquals(Boolean.FALSE, product.isProductTypeOf(ProductType.Book));
-		assertEquals(Boolean.FALSE, product.isProductTypeOf(ProductType.Medical));
-		assertEquals(Boolean.FALSE, product.isProductTypeOf(ProductType.Food));
+		assertEquals(Boolean.FALSE, product.isProductTypeOf(ProductType.BOOK));
+		assertEquals(Boolean.FALSE, product.isProductTypeOf(ProductType.MEDICAL));
+		assertEquals(Boolean.FALSE, product.isProductTypeOf(ProductType.FOOD));
 	}
 	
 	@Test

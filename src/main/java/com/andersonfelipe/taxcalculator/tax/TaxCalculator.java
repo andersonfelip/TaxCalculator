@@ -5,9 +5,9 @@ import com.andersonfelipe.taxcalculator.cart.CartItem;
 
 public class TaxCalculator {
 	
-	private static Tax[] taxes = new Tax[] {new BasicSales(),new ImportedSales()};
+	private static Tax[] taxes = new Tax[] {(Tax) new BasicSales(),(Tax) new ImportedSales()};
 	
-	public static void CalculateCartTax(Cart cart) {
+	public static void calculateCartTax(Cart cart) {
 		for (CartItem item : cart.getCartItems()) {
 			for (Tax tax : taxes) {
 				item.setTax(item.getTax() + tax.calculate(item.getProduct()));

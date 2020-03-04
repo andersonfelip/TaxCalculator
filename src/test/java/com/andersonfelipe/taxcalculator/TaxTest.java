@@ -97,7 +97,7 @@ public class TaxTest {
 	@Test
 	public void cartProcess() {
 		CartProcess.processCart(cart);
-		TaxCalculator.CalculateCartTax(cart);
+		TaxCalculator.calculateCartTax(cart);
 		
 	}
 	

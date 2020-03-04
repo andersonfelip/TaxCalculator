@@ -15,7 +15,6 @@ import com.andersonfelipe.taxcalculator.product.Product;
 import com.andersonfelipe.taxcalculator.tax.BasicSales;
 import com.andersonfelipe.taxcalculator.tax.ImportedSales;
 import com.andersonfelipe.taxcalculator.tax.Tax;
-import com.andersonfelipe.taxcalculator.tax.TaxCalculator;
 
 public class TaxTest {
 	
@@ -25,7 +24,14 @@ public class TaxTest {
 	Product importedFood;
 	Product importedOther;
 	
+	Product importedBottlePerfume;
+	Product bottlePerfume;
+	Product packetHeadachePills;
+	Product importedChocolate;
+	
 	Cart cart;
+	Cart importedCart;
+	Cart mixedCart;
 	
 	@Before
 	public void before() {
@@ -34,7 +40,15 @@ public class TaxTest {
 		other = createOther();
 		importedFood = createImportedFood();
 		importedOther = createImportedOther();
+		
+		importedBottlePerfume = createImportedBottlePerfume();
+		bottlePerfume = createBottlePerfume();
+		packetHeadachePills = createPacketHeadachePills();
+		importedChocolate = createImportedChocolate();
+		
 		cart = createCart();
+		importedCart = createCartWithImportedItems();
+		mixedCart = createMixedCartItems();
 	}
 
 	@Test
@@ -97,8 +111,22 @@ public class TaxTest {
 	@Test
 	public void cartProcess() {
 		CartProcess.processCart(cart);
-		TaxCalculator.calculateCartTax(cart);
-		
+		assertEquals(29.83f, cart.getTotalCost(),0);
+		assertEquals(1.5f, cart.getTotalTax(),0);
+	}
+	
+	@Test
+	public void importedCartPrinter() {
+		CartProcess.processCart(importedCart);
+		assertEquals(65.15f, importedCart.getTotalCost(),0);
+		assertEquals(7.65f, importedCart.getTotalTax(),0);
+	}
+
+	@Test
+	public void mixedCartPrinter() {
+		CartProcess.processCart(mixedCart);
+		assertEquals(74.68f, mixedCart.getTotalCost(),0);
+		assertEquals(6.70f, mixedCart.getTotalTax(),0);
 	}
 	
 	private Product createBook() {
@@ -154,4 +182,58 @@ public class TaxTest {
 		cartItem.setProduct(product);
 		return cartItem;
 	}
+	
+	private Cart createCartWithImportedItems() {
+		Cart cart = new Cart();
+		cart.setCartItems(createItems2());
+		return cart;
+	}
+
+	private Cart createMixedCartItems() {
+		Cart cart = new Cart();
+		cart.setCartItems(createItems3());
+		return cart;
+	}
+	
+	private List<CartItem> createItems2() {
+		List<CartItem> items = new ArrayList<CartItem>();
+		items.add(createCartItem(importedFood));
+		items.add(createCartItem(importedOther));
+		return items;
+	}
+
+	private List<CartItem> createItems3() {
+		List<CartItem> items = new ArrayList<CartItem>();
+		items.add(createCartItem(importedBottlePerfume));
+		items.add(createCartItem(bottlePerfume));
+		items.add(createCartItem(packetHeadachePills));
+		items.add(createCartItem(importedChocolate));
+
+		return items;
+	}
+	
+	private Product createImportedBottlePerfume() {
+		Product product = new Product();
+		product.setDescription("1 imported bottle of perfume at 27.99");
+		return product;
+	}
+
+	private Product createBottlePerfume() {
+		Product product = new Product();
+		product.setDescription("1 bottle of perfume at 18.99");
+		return product;
+	}
+
+	private Product createPacketHeadachePills() {
+		Product product = new Product();
+		product.setDescription("1 packet of headache pills at 9.75");
+		return product;
+	}
+
+	private Product createImportedChocolate() {
+		Product product = new Product();
+		product.setDescription("1 imported box of chocolates at 11.25");
+		return product;
+	}
+
 }

@@ -13,7 +13,7 @@ public class StringParser {
 	
 	private static String itemRegex = "(\\d+) ([\\w\\s]* )at (\\d+.\\d{2})";
 	
-	public static Cart cartParser(Cart cart) {
+	public static Cart cartParser(Cart cart)  {
 		if(!cart.getCartItems().isEmpty()) {
 			List<String> productDescription = new ArrayList<>(); 
 			for (CartItem item : cart.getCartItems()) {
@@ -24,14 +24,19 @@ public class StringParser {
 			
 			cart.setCartItems(new ArrayList<CartItem>());
 			for (String item : productDescription) {
-				cart.getCartItems().add(cartItemParser(item));
+				try {
+					cart.getCartItems().add(cartItemParser(item));
+				} catch (Exception e) {
+					System.out.println(e.getMessage());
+					System.out.println();
+				}
 			}
 		}
 			
 		return cart;
 	}
 	
-	public static CartItem cartItemParser(String description) {
+	public static CartItem cartItemParser(String description) throws Exception {
 		
 		Pattern pattern = Pattern.compile(itemRegex);
         Matcher matcher = pattern.matcher(description);
@@ -51,7 +56,7 @@ public class StringParser {
         	
         	return cartItem;
         }
-        return null;
+        throw new Exception("The item reported could not be converted!");
 		
 	}
 }

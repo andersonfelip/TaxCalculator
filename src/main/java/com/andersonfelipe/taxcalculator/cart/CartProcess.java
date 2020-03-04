@@ -5,7 +5,7 @@ import com.andersonfelipe.taxcalculator.tax.TaxCalculator;
 
 public class CartProcess {
 
-	public static void processCart(Cart cart) {
+	public static void processCart(Cart cart)  {
 		StringParser.cartParser(cart);
 		TaxCalculator.calculateCartTax(cart);
 	}

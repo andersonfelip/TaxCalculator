@@ -2,18 +2,28 @@ package com.andersonfelipe.taxcalculator;
 
 import static org.junit.Assert.assertEquals;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import com.andersonfelipe.taxcalculator.product.Product;
 import com.andersonfelipe.taxcalculator.product.ProductType;
-import com.andersonfelipe.taxcalculator.tax.BasicSales;
-import com.andersonfelipe.taxcalculator.tax.Tax;
 
 public class ProductTest {
 	
+	Product book;
+	Product food;
+	Product other;
+	
+	@Before
+	public void before() {
+		book = createBook();
+		food = createFood();
+		other = createOther();
+	}
+	
 	@Test
 	public void createProductBook() {
-		Product product = createBook();
+		Product product = book;
 		assertEquals(Boolean.TRUE, product.isProductTypeOf(ProductType.Book));
 		assertEquals(Boolean.FALSE, product.isProductTypeOf(ProductType.Food));
 		assertEquals(Boolean.FALSE, product.isProductTypeOf(ProductType.Medical));
@@ -21,7 +31,7 @@ public class ProductTest {
 	
 	@Test
 	public void createProductFood() {
-		Product product = createFood();
+		Product product = food;
 		assertEquals(Boolean.TRUE, product.isProductTypeOf(ProductType.Food));
 		assertEquals(Boolean.FALSE, product.isProductTypeOf(ProductType.Book));
 		assertEquals(Boolean.FALSE, product.isProductTypeOf(ProductType.Medical));
@@ -29,7 +39,7 @@ public class ProductTest {
 	
 	@Test
 	public void createProductOther() {
-		Product product = createOther();
+		Product product = other;
 		assertEquals(Boolean.FALSE, product.isProductTypeOf(ProductType.Book));
 		assertEquals(Boolean.FALSE, product.isProductTypeOf(ProductType.Medical));
 		assertEquals(Boolean.FALSE, product.isProductTypeOf(ProductType.Food));

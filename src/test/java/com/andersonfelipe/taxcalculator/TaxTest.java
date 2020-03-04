@@ -2,6 +2,7 @@ package com.andersonfelipe.taxcalculator;
 
 import static org.junit.Assert.assertEquals;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import com.andersonfelipe.taxcalculator.product.Product;
@@ -9,23 +10,34 @@ import com.andersonfelipe.taxcalculator.tax.BasicSales;
 import com.andersonfelipe.taxcalculator.tax.Tax;
 
 public class TaxTest {
+	
+	Product book;
+	Product food;
+	Product other;
+	
+	@Before
+	public void before() {
+		book = createBook();
+		food = createFood();
+		other = createOther();
+	}
 
 	@Test
 	public void testBasicSaleTaxFood() {
 		BasicSales basicSales = new BasicSales();
-		assertEquals(Boolean.FALSE,basicSales.isApplicable(createFood()));
+		assertEquals(Boolean.FALSE,basicSales.isApplicable(food));
 	}
 	
 	@Test
 	public void testBasicSaleTaxBook() {
 		BasicSales basicSales = new BasicSales();
-		assertEquals(Boolean.FALSE,basicSales.isApplicable(createBook()));
+		assertEquals(Boolean.FALSE,basicSales.isApplicable(book));
 	}
 	
 	@Test
 	public void testBasicSaleTaxOther() {
 		Tax basicSales = new BasicSales();
-		assertEquals(Boolean.TRUE,basicSales.isApplicable(createOther()));
+		assertEquals(Boolean.TRUE,basicSales.isApplicable(other));
 	}
 	
 	private Product createBook() {

@@ -47,11 +47,4 @@ public class Product {
 	public boolean isImported() {
 		return description.contains(" imported ");
 	}
-
-	@Override
-	public String toString() {
-		return String.format("%s at %f", description, shelfPrice);
-	}
-	
-	
 }

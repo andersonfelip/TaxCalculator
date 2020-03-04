@@ -5,9 +5,6 @@ import com.andersonfelipe.taxcalculator.product.ProductType;
 
 public class BasicSales extends Tax {
 
-	public BasicSales() {
-	}
-
 	private ProductType[] excemptionsTax = { ProductType.Book, ProductType.Food, ProductType.Medical };
 
 	@Override

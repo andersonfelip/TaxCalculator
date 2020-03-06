@@ -12,7 +12,7 @@ import com.andersonfelipe.taxcalculator.cart.CartPrinter;
 import com.andersonfelipe.taxcalculator.cart.CartProcess;
 import com.andersonfelipe.taxcalculator.product.Product;
 
-public class CartTest {
+public class CartPrinterTest {
 
 	Product book;
 	Product food;
@@ -114,7 +114,7 @@ public class CartTest {
 		cartItem.setProduct(product);
 		return cartItem;
 	}
-
+	
 	public Product createBook() {
 		Product product = new Product();
 		product.setDescription("1 book at 12.49");

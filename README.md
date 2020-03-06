@@ -3,7 +3,7 @@
 
 Shopping cart tax calculation system
 
-Execute the class src/test/java/CartTest to see the console log of cart.
+Execute the class src/test/java/CartPrinterTest to see the console log of cart.
 
 ###Using the template method design pattern to avoid duplication of classes and tax###
 

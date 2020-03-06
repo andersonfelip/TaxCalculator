@@ -3,7 +3,7 @@ package com.andersonfelipe.taxcalculator.tax;
 import com.andersonfelipe.taxcalculator.product.Product;
 import com.andersonfelipe.taxcalculator.product.ProductType;
 
-public class BasicSales implements Tax {
+public class BasicSales extends Tax {
 
 	private ProductType[] excemptionsTax = { ProductType.BOOK, ProductType.FOOD, ProductType.MEDICAL };
 

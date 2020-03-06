@@ -7,6 +7,7 @@ import java.util.regex.Pattern;
 
 import com.andersonfelipe.taxcalculator.cart.Cart;
 import com.andersonfelipe.taxcalculator.cart.CartItem;
+import com.andersonfelipe.taxcalculator.exceptions.ItemNonstandardException;
 import com.andersonfelipe.taxcalculator.product.Product;
 
 public class StringParser {
@@ -36,7 +37,7 @@ public class StringParser {
 		return cart;
 	}
 	
-	public static CartItem cartItemParser(String description) throws Exception {
+	public static CartItem cartItemParser(String description) throws ItemNonstandardException {
 		
 		Pattern pattern = Pattern.compile(itemRegex);
         Matcher matcher = pattern.matcher(description);
@@ -56,7 +57,7 @@ public class StringParser {
         	
         	return cartItem;
         }
-        throw new Exception("The item reported could not be converted!");
+        throw new ItemNonstandardException("The item reported could not be converted!");
 		
 	}
 }

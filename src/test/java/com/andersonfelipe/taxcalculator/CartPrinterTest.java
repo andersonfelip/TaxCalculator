@@ -67,21 +67,15 @@ public class CartPrinterTest {
 	}
 
 	private Cart createCart() {
-		Cart cart = new Cart();
-		cart.setCartItems(createItems1());
-		return cart;
+		return new Cart(createItems1());
 	}
 
 	private Cart createCartWithImportedItems() {
-		Cart cart = new Cart();
-		cart.setCartItems(createItems2());
-		return cart;
+		return new Cart(createItems2());
 	}
 
 	private Cart createMixedCartItems() {
-		Cart cart = new Cart();
-		cart.setCartItems(createItems3());
-		return cart;
+		return new Cart(createItems3());
 	}
 
 	private List<CartItem> createItems1() {
@@ -110,68 +104,53 @@ public class CartPrinterTest {
 	}
 
 	private CartItem createCartItem(Product product) {
-		CartItem cartItem = new CartItem();
-		cartItem.setProduct(product);
-		return cartItem;
+		return new CartItem(product);
 	}
 	
 	public Product createBook() {
-		Product product = new Product();
-		product.setDescription("1 book at 12.49");
+		Product product = new Product("1 book at 12.49");
 		product.setShelfPrice(12.49f);
 		return product;
 	}
 
 	public Product createFood() {
-		Product product = new Product();
-		product.setDescription("1 chocolate bar at 0.85");
+		Product product = new Product("1 chocolate bar at 0.85");
 		product.setShelfPrice(0.85f);
 		return product;
 	}
 
 	public Product createOther() {
-		Product product = new Product();
-		product.setDescription("1 music CD at 14.99");
+		Product product = new Product("1 music CD at 14.99");
 		product.setShelfPrice(14.99f);
 		return product;
 	}
 
 	public Product createImportedFood() {
-		Product product = new Product();
-		product.setDescription("1 imported box of chocolates at 10.00");
+		Product product = new Product("1 imported box of chocolates at 10.00");
 		product.setShelfPrice(10.00f);
 		return product;
 	}
 
 	public Product createImportedOther() {
-		Product product = new Product();
-		product.setDescription("1 imported bottle of perfume at 47.50");
+		Product product = new Product("1 imported bottle of perfume at 47.50");
 		product.setShelfPrice(47.50f);
 		return product;
 	}
 
 	private Product createImportedBottlePerfume() {
-		Product product = new Product();
-		product.setDescription("1 imported bottle of perfume at 27.99");
-		return product;
+		return new Product("1 imported bottle of perfume at 27.99");
 	}
 
 	private Product createBottlePerfume() {
-		Product product = new Product();
-		product.setDescription("1 bottle of perfume at 18.99");
-		return product;
+		return new Product("1 bottle of perfume at 18.99");
 	}
 
 	private Product createPacketHeadachePills() {
-		Product product = new Product();
-		product.setDescription("1 packet of headache pills at 9.75");
-		return product;
+		return new Product("1 packet of headache pills at 9.75");
 	}
 
 	private Product createImportedChocolate() {
-		Product product = new Product();
-		product.setDescription("1 imported box of chocolates at 11.25");
-		return product;
+		return new Product("1 imported box of chocolates at 11.25");
 	}
 
 }

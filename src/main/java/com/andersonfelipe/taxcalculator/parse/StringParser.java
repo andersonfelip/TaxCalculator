@@ -12,6 +12,10 @@ import com.andersonfelipe.taxcalculator.product.Product;
 
 public class StringParser {
 	
+	private StringParser() {
+	    throw new IllegalStateException("Static class");
+	}
+	
 	private static String itemRegex = "(\\d+) ([\\w\\s]* )at (\\d+.\\d{2})";
 	
 	public static Cart cartParser(Cart cart)  {
@@ -47,13 +51,11 @@ public class StringParser {
         	String productName = matcher.group(2).trim();
         	Float price = Float.parseFloat(matcher.group(3));
         	
-        	Product product = new Product();
-        	product.setDescription(productName);
+        	Product product = new Product(productName);
         	product.setShelfPrice(price);
         	
-        	CartItem cartItem = new CartItem();
+        	CartItem cartItem = new CartItem(product);
         	cartItem.setQuantity(quantity);
-        	cartItem.setProduct(product);
         	
         	return cartItem;
         }

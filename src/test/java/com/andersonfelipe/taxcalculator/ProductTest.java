@@ -47,26 +47,19 @@ public class ProductTest {
 	
 	@Test
 	public void createVerifyProductImported() {
-		Product product = new Product();
-		product.setDescription("1 imported box of chocolates at 10.00");
+		Product product = new Product("1 imported box of chocolates at 10.00");
 		assertEquals(Boolean.TRUE, product.isImported());
 	}
 	
 	private Product createBook() {
-		Product product = new Product();
-		product.setDescription("1 book at 12.49");
-		return product;
+		return new Product("1 book at 12.49");
 	}
 	
 	private Product createFood() {
-		Product product = new Product();
-		product.setDescription("1 chocolate bar at 0.85");
-		return product;
+		return new Product("1 chocolate bar at 0.85");
 	}
 	
 	private Product createOther() {
-		Product product = new Product();
-		product.setDescription("1 music CD at 14.99");
-		return product;
+		return new Product("1 music CD at 14.99");
 	}
 }

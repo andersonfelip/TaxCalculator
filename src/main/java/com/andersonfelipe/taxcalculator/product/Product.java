@@ -1,7 +1,6 @@
 package com.andersonfelipe.taxcalculator.product;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.EnumMap;
 
 public class Product {
 	
@@ -9,6 +8,11 @@ public class Product {
 	
 	private float shelfPrice;
 	
+	public Product(String description) {
+		super();
+		this.description = description;
+	}
+
 	public String getDescription() {
 		return description;
 	}
@@ -25,7 +29,7 @@ public class Product {
 		this.shelfPrice = shelfPrice;
 	}
 
-	private static Map<ProductType,String[]> dictionaryTypes = new HashMap<>();
+	private static EnumMap<ProductType,String[]> dictionaryTypes = new EnumMap<>(ProductType.class);
 	
 	static {
 		dictionaryTypes.put(ProductType.FOOD, new String[] {"chocolate","chocolates"});

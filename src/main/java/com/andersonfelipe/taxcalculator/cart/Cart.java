@@ -3,6 +3,12 @@ package com.andersonfelipe.taxcalculator.cart;
 import java.util.List;
 
 public class Cart {
+	
+	public Cart(List<CartItem> cartItems) {
+		super();
+		this.cartItems = cartItems;
+	}
+	
 	private List<CartItem> cartItems;
 	private float totalTax;
 	private float totalCost;

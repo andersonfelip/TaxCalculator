@@ -2,6 +2,10 @@ package com.andersonfelipe.taxcalculator.cart;
 
 public class CartPrinter {
 	
+	private CartPrinter() {
+		throw new IllegalStateException("Static class");
+	}
+
 	public static void print(Cart cart) {
 		for (CartItem item : cart.getCartItems()) {
 			System.out.println(item);

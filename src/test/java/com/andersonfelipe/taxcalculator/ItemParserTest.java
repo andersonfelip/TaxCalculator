@@ -36,22 +36,19 @@ public class ItemParserTest {
 	}
 
 	public Product createBookException() {
-		Product product = new Product();
-		product.setDescription("book at 12.49");
+		Product product = new Product("book at 12.49");
 		product.setShelfPrice(12.49f);
 		return product;
 	}
 
 	public Product createFoodException() {
-		Product product = new Product();
-		product.setDescription("1 at 0.85");
+		Product product = new Product("1 at 0.85");
 		product.setShelfPrice(0.85f);
 		return product;
 	}
 
 	public Product createOtherException() {
-		Product product = new Product();
-		product.setDescription("1 music CD at");
+		Product product = new Product("1 music CD at");
 		product.setShelfPrice(14.99f);
 		return product;
 	}

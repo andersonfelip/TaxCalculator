@@ -5,6 +5,10 @@ import com.andersonfelipe.taxcalculator.cart.CartItem;
 
 public class TaxCalculator {
 	
+	private TaxCalculator() {
+	    throw new IllegalStateException("Static class");
+	}
+	
 	private static Tax[] taxes = new Tax[] {(Tax) new BasicSales(),(Tax) new ImportedSales()};
 	
 	public static void calculateCartTax(Cart cart) {

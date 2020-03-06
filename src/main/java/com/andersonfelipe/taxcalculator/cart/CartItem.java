@@ -6,6 +6,11 @@ public class CartItem {
 	private Product product;
 	private int quantity;
 	private float tax;
+	
+	public CartItem(Product product) {
+		super();
+		this.product = product;
+	}
 
 	public Product getProduct() {
 		return product;

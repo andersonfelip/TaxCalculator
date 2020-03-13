@@ -16,7 +16,7 @@ public class StringParser {
 	    throw new IllegalStateException("Static class");
 	}
 	
-	private static String itemRegex = "(\\d+) ([\\w\\s]* )at (\\d+.\\d{2})";
+	private static String itemRegex = "(\\d+) ([\\w\\s]* )at (\\d+[\\.\\,]\\d{2})";
 	
 	public static Cart cartParser(Cart cart)  {
 		if(!cart.getCartItems().isEmpty()) {
